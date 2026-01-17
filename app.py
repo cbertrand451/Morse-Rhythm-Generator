@@ -1,4 +1,5 @@
 import re
+import logging
 import streamlit as st
 
 from morse import text_to_morse
@@ -12,6 +13,9 @@ from rhythm import (
 from render_svg import labels_for_bar, render_bar_svg
 from utils import sanitize_text, load_css
 from components import build_morse_metronome_wave, wav_bytes_from_audio
+
+
+logger = logging.getLogger("morse_rhythm")
 
 
 def format_morse_tokens(tokens):
@@ -110,6 +114,28 @@ with text_c:
         vals.append(i)
     bpm = st.select_slider("Select a tempo (bpm):", options=vals)
     metronome_on = st.checkbox("Metronome click", value=True)
+
+    if clean_text.strip():
+        log_payload = {
+            "text": clean_text,
+            "time_signature": time_sig,
+            "show_inactive_labels": show_inactive_labels,
+            "show_char_brackets": show_char_brackets,
+            "metronome_on": metronome_on,
+            "tempo_bpm": bpm,
+        }
+        if st.session_state.get("last_log_payload") != log_payload:
+            logger.info(
+                "user_input text=%s time_signature=%s show_inactive_labels=%s "
+                "show_char_brackets=%s metronome_on=%s tempo_bpm=%s",
+                clean_text,
+                time_sig,
+                show_inactive_labels,
+                show_char_brackets,
+                metronome_on,
+                bpm,
+            )
+            st.session_state["last_log_payload"] = log_payload
 
     if clean_text.strip():
         audio, sample_rate = build_morse_metronome_wave(
