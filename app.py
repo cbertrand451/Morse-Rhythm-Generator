@@ -68,7 +68,7 @@ with text_c:
     numerator, denominator = (int(part) for part in time_sig.split("/"))
     show_inactive_labels = st.checkbox("Show all counts (1 e + a)", value=True)
     st.caption("Without this, only the notes being played have counts beneath them.")
-    show_char_brackets = st.checkbox("Show individual characters", value=False)
+    show_char_brackets = st.checkbox("Show individual characters", value=True)
     st.caption("This allows you to see the exact notes that are being played for each letter/character.")
 
     # Normalize input so other functions never sees None
