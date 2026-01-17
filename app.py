@@ -15,6 +15,12 @@ from utils import sanitize_text, load_css
 from components import build_morse_metronome_wave, wav_bytes_from_audio
 
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+)
+
+
 logger = logging.getLogger("morse_rhythm")
 
 
