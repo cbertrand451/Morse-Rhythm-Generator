@@ -1,0 +1,24 @@
+/* Frame around the SVG grid. */
+.svg-frame {
+  background: #fff;
+  border: 8px solid #C5A572;
+  border-radius: 16px;
+  padding: 0;
+  margin: 0 auto 32px auto;
+  width: fit-content;
+  max-width: 100%;
+}
+
+/* Center each SVG row horizontally. */
+.svg-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Keep SVGs responsive within the row. */
+.svg-row svg {
+  display: block;
+  padding: 32px;
+  max-width: 100%;
+  height: auto;
+}

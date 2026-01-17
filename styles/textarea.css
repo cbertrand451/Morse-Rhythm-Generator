@@ -1,0 +1,20 @@
+/* Text input wrapper spacing. */
+.st-key-test {
+  margin: 1em 0 1em 0;
+  position: relative;
+}
+
+/* Base input styling. */
+.st-key-test input {
+  background: #FFFFFF;
+  font-size: 100%;
+  width: 100%;
+}
+
+
+/* Focus state outline for visibility. */
+.st-key-test input:focus {
+  background: #FFFFFF;
+  outline: solid #5E6973;
+  border: none;
+}
