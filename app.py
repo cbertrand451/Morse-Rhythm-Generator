@@ -57,7 +57,7 @@ with text_c:
         "Time signature",
         ["4/4", "12/8"],
         # ["3/4", "4/4", "5/4", "6/4", "7/4", "6/8", "9/8", "12/8"],
-        index=1, horizontal=True
+        horizontal=True
     )
     numerator, denominator = (int(part) for part in time_sig.split("/"))
     show_inactive_labels = st.checkbox("Show all counts (1 e + a)", value=True)
