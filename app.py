@@ -153,7 +153,7 @@ with text_c:
         wav_bytes = wav_bytes_from_audio(audio, sample_rate)
         if wav_bytes:
             st.audio(wav_bytes, format="audio/wav")
-    st.caption("Aduio will start with a one measure countoff")
+    st.caption("Audio will start with a one measure countoff")
 
 with morse_c:
     if not bars:
